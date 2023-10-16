@@ -1,0 +1,27 @@
+{
+  "name": "final-space-fan-site",
+  "version": "0.0.1",
+  "description": "A cool website about one of the best animated scy-fy series.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jpalomarbl/final-space-fan-site.git"
+  },
+  "keywords": [
+    "scy-fy",
+    "final",
+    "space",
+    "series",
+    "cartoon",
+    "website"
+  ],
+  "author": "Jaime Simeón Palomar Blumenthal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jpalomarbl/final-space-fan-site/issues"
+  },
+  "homepage": "https://github.com/jpalomarbl/final-space-fan-site#readme"
+}
