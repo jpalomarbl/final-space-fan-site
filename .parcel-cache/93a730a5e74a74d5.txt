@@ -25,7 +25,7 @@
 99C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\posthtml\node_modules\posthtml-parser\dist133419421052098477 1
 102C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\lmdb\node_modules\node-addon-api\node_api.gyp133419421050233518 0
 107C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\caniuse-lite\data\features\css-element-function.js133419421058759752 0
-64C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\src\cover\styles.css133419494822785797 0
+64C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\src\cover\styles.css133419497012227925 0
 96C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\@swc\helpers\_\_class_private_field_get133419421059553351 1
 120C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\@parcel\source-map\parcel_sourcemap_wasm\dist-node\package.json133419421054072560 0
 63C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\src\includes\header133419493664159981 1
@@ -35,7 +35,7 @@
 82C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\svgo\plugins\prefixIds.js133419421055000073 0
 75C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\.package-lock.json133419490729642385 0
 85C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\posthtml-expressions\license133419490728303182 0
-75C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\src\includes\header\header.html133419494990709445 0
+75C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\src\includes\header\header.html133419535917374905 0
 107C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\@parcel\transformer-babel\lib\remapAstLocations.js133419421053432721 0
 90C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\csso\lib\replace\property\font.js133419421056929514 0
 79C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\commander\package.json133419421051294956 0
@@ -66,7 +66,7 @@
 63C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\base-x133419421050957681 1
 114C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\@parcel\core\test\fixtures\config-node-pipeline\.parcelrc133419421051622316 0
 55C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\.posthtmlrc133419491019471651 0
-48C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\dist133419495154293527 1
+48C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\dist133419534897883800 1
 88C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\caniuse-lite\data\regions\RU.js133419421063630466 0
 80C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\csso\lib\replace\atrule133419421057083272 1
 89C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\.bin\download-lmdb-prebuilds.ps1133419421065366466 0
@@ -231,7 +231,7 @@
 80C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\parent-module\readme.md133419421050932884 0
 89C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\css-tree\cjs\convertor\index.cjs133419421056369040 0
 85C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\posthtml-render\package.json133419421050714639 0
-64C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\src\cover\index.html133419496217322747 0
+64C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\src\cover\index.html133419535884275126 0
 91C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\lmdb\dependencies\lz4\lib\xxhash.c133419421057157675 0
 85C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\@swc\helpers\src\_update.mjs133419421061497667 0
 79C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\mdn-data\l10n\css.json133419421052723438 0
@@ -264,7 +264,7 @@
 89C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\@swc\helpers\_\_get_prototype_of133419421059890632 1
 81C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\@swc\helpers\esm\_get.js133419421058387760 0
 85C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\svgo\plugins\inlineStyles.js133419421054389996 0
-61C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\@swc133419421072603095 1
+61C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\@swc133419490728471824 1
 82C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\@parcel\core\lib\index.js133419421056993992 0
 91C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\@parcel\core\src\Transformation.js133419421058908550 0
 66C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\@trysound133419421039826508 1
@@ -396,7 +396,7 @@
 66C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\js-tokens133419421051156081 1
 97C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\source-map-js\lib\source-map-consumer.js133419421052341517 0
 97C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\@swc\helpers\src\_async_to_generator.mjs133419421060793355 0
-69C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\fclone\bench133419490728417267 1
+69C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\fclone\bench133419490728422229 1
 74C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\svgo\package.json133419421057013837 0
 94C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\@parcel\cache\src\IDBCache.browser.js133419421051473518 0
 109C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\caniuse-lite\data\features\css-boxdecorationbreak.js133419421058358116 0
@@ -593,7 +593,7 @@
 113C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\csso\node_modules\css-tree\lib\syntax\node\IdSelector.js133419421059101994 0
 85C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\posthtml-parser\package.json133419421051319763 0
 74C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\yallist\README.md133419421051299917 0
-59C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\dist\index.html133419434132174134 0
+59C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\dist\index.html133419534897873885 0
 71C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\csso\README.md133419421057599118 0
 107C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\@swc\helpers\src\_define_enumerable_properties.mjs133419421061056229 0
 91C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\@parcel\graph\lib\AdjacencyList.js133419421051051919 0
@@ -1185,7 +1185,7 @@
 84C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\js-yaml\dist\js-yaml.min.js133419421053740239 0
 108C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\lmdb\dependencies\lmdb\libraries\liblmdb\mdb_dump.c133419421055634952 0
 71C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\source-map\lib133419421053209518 1
-71C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\dist\index.196ce42f.css.map133419488966506883 0
+71C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\dist\index.196ce42f.css.map133419534213536120 0
 93C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\@parcel\core\src\summarizeRequest.js133419421058576231 0
 78C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\source-map-js\LICENSE133419421049911124 0
 95C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\csso\cjs\replace\AttributeSelector.cjs133419421052986315 0
@@ -2421,7 +2421,7 @@
 82C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\htmlnano\docs\sidebars.js133419421054737196 0
 85C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\htmlnano\docs\versioned_docs133419421056071433 1
 89C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\css-select\lib\attributes.js.map133419421054905833 0
-70C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\dist\cover.cbacac7a.js.map133419495154243977 0
+70C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\dist\cover.cbacac7a.js.map133419534896324092 0
 91C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\@parcel\utils\src\shared-buffer.js133419421056790634 0
 84C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\htmlnano\docs\versions.json133419421055892874 0
 117C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\htmlnano\docs\versioned_sidebars\version-1.1.1-sidebars.json133419421055808554 0
@@ -2975,7 +2975,7 @@
 105C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\css-select\lib\esm\pseudo-selectors\pseudos.d.ts133419421057167593 0
 118C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\@parcel\optimizer-svgo\node_modules\css-select\lib\types.d.ts133419421055282794 0
 94C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\csso\node_modules\css-tree\cjs\parser133419421057812392 1
-67C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\dist\index.196ce42f.css133419488966492005 0
+67C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\dist\index.196ce42f.css133419515712263305 0
 94C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\csso\node_modules\css-tree\cjs\syntax133419421056463275 1
 88C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\caniuse-lite\data\regions\GL.js133419421061403430 0
 94C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\csso\node_modules\css-tree\cjs\walker133419421056656714 1
@@ -5894,5 +5894,5 @@
 68C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\.bin\parcel133419421065371424 0
 70C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\.bin\svgo.cmd133419421065371424 0
 88C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\node_modules\.bin\update-browserslist-db.cmd133419421065371424 0
-66C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\dist\cover.cbacac7a.js133419495154135053 0
-78C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\dist\Final_Space_Logo.d197017b.png133419487128366905 0
+66C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\dist\cover.cbacac7a.js133419534896304254 0
+78C:\Users\sienk\Documents\UOC\HTMLyCSS1\PEC1\dist\Final_Space_Logo.d197017b.png133419534213600592 0
