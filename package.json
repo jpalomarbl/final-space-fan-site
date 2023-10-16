@@ -2,9 +2,12 @@
   "name": "final-space-fan-site",
   "version": "0.0.1",
   "description": "A cool website about one of the best animated scy-fy series.",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "cover": "parcel src/cover/index.html",
+    "presentation": "parcel src/presentation/index.html",
+    "details": "parcel src/details/index.html",
+    "links": "parcel src/links/index.html",
+    "category": "parcel src/category/index.html"
   },
   "repository": {
     "type": "git",
@@ -23,5 +26,9 @@
   "bugs": {
     "url": "https://github.com/jpalomarbl/final-space-fan-site/issues"
   },
-  "homepage": "https://github.com/jpalomarbl/final-space-fan-site#readme"
+  "homepage": "https://github.com/jpalomarbl/final-space-fan-site#readme",
+  "devDependencies": {
+    "parcel": "^2.10.0",
+    "posthtml-include": "^1.7.4"
+  }
 }
