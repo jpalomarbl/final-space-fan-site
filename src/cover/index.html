@@ -7,7 +7,21 @@
     <title>Final Space Fan Site!</title>
   </head>
   <body>
-    <include src="./src/includes/header/header.html" locals='{ "current": "0"}'></include>
-    
+    <include
+      src="./src/includes/header/header.html"
+      locals='{ "current": "-1"}'
+    ></include>
+
+    <body>
+      <section class="hero-quote">
+        <h2>Funny random quote!</h2>
+        <h3>
+          <span id="quote" class="quote"> "Example quote..." </span> -
+          <span id="author" class="author"> Example author. </span>.
+        </h3>
+      </section>
+    </body>
+
+    <script type="module" src="script.js"></script>
   </body>
 </html>

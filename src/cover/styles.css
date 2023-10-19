@@ -5,10 +5,40 @@
 }
 
 body {
-  background-color: #1b1a2f;
+  background: linear-gradient(to bottom, #343254, #121212);
+  background-attachment: fixed;
   color: #fff;
   display: flex;
   flex-direction: column;
   font-family: "Montserrat", sans-serif;
   margin: 0;
+}
+
+.hero-quote {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #a45e5b;
+}
+
+.hero-quote h2 {
+  font-size: 35px;
+  margin: 50px 0 25px 0;
+}
+
+.hero-quote h3 {
+  font-size: 20px;
+  font-weight: lighter;
+  padding-bottom: 30px;
+}
+
+.hero-quote span.quote {
+  font-style: italic;
+  font-weight: lighter;
+}
+
+.hero-quote span.author {
+  font-style: normal;
+  font-weight: bold;
 }
