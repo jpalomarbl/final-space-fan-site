@@ -1,0 +1,201 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(to bottom, #343254, #121212);
+  background-attachment: fixed;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+}
+
+section > div.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+
+  color: #1b1a2f;
+}
+
+section > div.menu:first-child {
+  margin: 40px 30px 0px 30px;
+}
+
+section > div.menu:not(:first-child) {
+  margin: 0 30px;
+}
+
+section > div.menu > h2 {
+  background-color: rgb(235, 235, 235, 0.5);
+
+  cursor: pointer;
+
+  text-align: center;
+
+  border-radius: 7px;
+  border-width: 2px;
+  border-color: #9f9ec4;
+  border-style: solid;
+
+  width: 90vw;
+
+  margin: 0;
+  padding: 15px 0;
+
+  transition: all 100ms ease-in-out;
+}
+
+section > div.menu > h2:hover {
+  background-color: rgb(235, 235, 235, 0.6);
+  transform: scale(1.01);
+}
+
+section > div.menu > h2.open {
+  border-width: 4px;
+  border-color: #a45e5b;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+div.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  height: 100%;
+
+  background-color: rgb(235, 235, 235, 0.5);
+  border-radius: 7px;
+
+  transition: background-color 100ms ease-in-out;
+}
+
+div.card:hover {
+  background-color: rgb(235, 235, 235, 0.6);
+}
+
+div.card:hover img {
+  transition: all 100ms ease-in-out;
+  transform: scale(1.03);
+}
+
+div.card:hover h3 {
+  transition: all 100ms ease-in-out;
+  transform: scale(1.03);
+}
+
+div.card:hover li {
+  transition: all 100ms ease-in-out;
+  transform: scale(1.03);
+}
+
+div.card li.alive,
+div.card li.deceased,
+div.card li.unknown {
+  border-radius: 5px;
+  border-color: rgb(235, 235, 235, 0.8);
+  border-width: 3px;
+  border-style: solid;
+
+  padding: 5px;
+}
+
+div.card li.alive {
+  background-color: rgb(50, 140, 50);
+}
+
+div.card li.deceased {
+  background-color: rgb(183, 54, 54);
+}
+
+div.card li.unknown {
+  background-color: gray;
+}
+
+div.card h3 {
+  font-size: 20px;
+  text-align: center;
+}
+
+section > div.menu > ul,
+section > div.menu > ol {
+  overflow: hidden;
+  display: grid;
+  justify-content: center;
+
+  height: 0px;
+  padding: 0;
+}
+
+section > div.menu > ul.open,
+section > div.menu > ol.open {
+  height: fit-content;
+}
+
+div.card ul,
+div.card ol {
+  margin: 20px 0;
+
+  padding: 0;
+}
+
+@media screen and (min-width: 980px) {
+  section > div.menu > ul,
+  section > div.menu > ol {
+    grid-template-columns: 25% 25% 25%;
+    row-gap: 20px;
+    column-gap: 20px;
+
+    width: 98vw;
+  }
+
+  div.card > img {
+    height: 150px;
+    border-radius: 5px;
+  }
+}
+
+@media screen and (max-width: 979px) and (min-width: 506px) {
+  section > div.menu > ul,
+  section > div.menu > ol {
+    grid-template-columns: 100%;
+    row-gap: 20px;
+
+    width: 90vw;
+  }
+
+  div.card > img {
+    height: 200px;
+    border-radius: 5px;
+  }
+}
+
+@media screen and (max-width: 505px) {
+  section > div.menu > ul,
+  section > div.menu > ol {
+    grid-template-columns: 100%;
+    row-gap: 20px;
+
+    width: 90vw;
+  }
+
+  div.card > img {
+    height: 180px;
+    border-radius: 5px;
+  }
+}

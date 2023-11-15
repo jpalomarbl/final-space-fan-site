@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Final Space Fan Site!</title>
+  </head>
+  <body>
+    <include
+      src="./includes/header/header.html"
+      locals='{ "current": "0"}'
+    ></include>
+
+    <section>
+      <div id="locations" class="menu">
+        <h2 id="locations-title">Locations</h2>
+      </div>
+      <div id="characters" class="menu">
+        <h2 id="characters-title">Characters</h2>
+      </div>
+      <div id="episodes" class="menu">
+        <h2 id="episodes-title">Episodes</h2>
+      </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
