@@ -10,6 +10,8 @@ const locationsList = document.createElement("ul");
 const charactersList = document.createElement("ul");
 const episodesList = document.createElement("ol");
 
+console.log(window.location);
+
 axios.get("https://finalspaceapi.com/api/v0/location/").then((response) => {
   // console.log("locations", response.data);
 
@@ -17,7 +19,11 @@ axios.get("https://finalspaceapi.com/api/v0/location/").then((response) => {
     let locationElement = document.createElement("li");
 
     let cardLink = document.createElement("a");
-    cardLink.href = `/details/${location.name}`
+    cardLink.href = `../details/${location.name
+      .toLowerCase()
+      .replace(/(\s+\w)/g, function (match) {
+        return match.trim().toUpperCase();
+      })}.html`;
 
     let locationCard = document.createElement("div");
     locationCard.classList.add("card");
@@ -49,7 +55,11 @@ axios.get("https://finalspaceapi.com/api/v0/character/").then((response) => {
     let characterElement = document.createElement("li");
 
     let cardLink = document.createElement("a");
-    cardLink.href = `/details/${character.name}`;
+    cardLink.href = `../details/details.html/${character.name
+      .toLowerCase()
+      .replace(/(\s+\w)/g, function (match) {
+        return match.trim().toUpperCase();
+      })}.html`;
 
     let characterCard = document.createElement("div");
     characterCard.classList.add("card");
@@ -66,12 +76,15 @@ axios.get("https://finalspaceapi.com/api/v0/character/").then((response) => {
     let characterStatus = document.createElement("li");
     characterStatus.innerText = character.status;
 
-    if (character.status === 'Alive' || character.status === 'Operational')
+    if (character.status === "Alive" || character.status === "Operational")
       characterStatus.classList.add("alive");
-    else if (character.status === 'Deceased' || character.status === 'Deceased (Possessed)' || character.status === 'Destroyed')
+    else if (
+      character.status === "Deceased" ||
+      character.status === "Deceased (Possessed)" ||
+      character.status === "Destroyed"
+    )
       characterStatus.classList.add("deceased");
-    else
-      characterStatus.classList.add("unknown");
+    else characterStatus.classList.add("unknown");
 
     cardBody.append(characterStatus);
     characterCard.append(cardTitle, cardImg, cardBody);
@@ -88,7 +101,11 @@ axios.get("https://finalspaceapi.com/api/v0/episode/").then((response) => {
     let episodeElement = document.createElement("li");
 
     let cardLink = document.createElement("a");
-    cardLink.href = `/details/${episode.name}`;
+    cardLink.href = `../details/details.html/${episode.name
+      .toLowerCase()
+      .replace(/(\s+\w)/g, function (match) {
+        return match.trim().toUpperCase();
+      })}.html`;
 
     let episodeCard = document.createElement("div");
     episodeCard.classList.add("card");
@@ -104,7 +121,7 @@ axios.get("https://finalspaceapi.com/api/v0/episode/").then((response) => {
 
     let episodeDirector = document.createElement("li");
     episodeDirector.innerHTML = `<span style="font-weight: bold">Director:</span> ${episode.director}.`;
-    
+
     let episodeWriter = document.createElement("li");
     episodeWriter.innerHTML = `<span style="font-weight: bold">Writer:</span> ${episode.writer}.`;
 
@@ -124,13 +141,13 @@ episodesMenu.append(episodesList);
 const menus = [locationsMenu, charactersMenu, episodesMenu];
 const menuTitles = [locationsTitle, charactersTitle, episodesTitle];
 
+console.log(window.innerWidth);
 menuTitles.forEach((title, index) =>
   title.addEventListener("click", () => {
     if (menus[index].childNodes[3].className === "") {
       menus[index].childNodes[3].className = "open";
       title.className = "open";
-    }
-    else {
+    } else {
       menus[index].childNodes[3].className = "";
       title.className = "";
     }

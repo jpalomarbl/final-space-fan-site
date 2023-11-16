@@ -156,7 +156,7 @@ div.card ol {
   padding: 0;
 }
 
-@media screen and (min-width: 980px) {
+@media screen and (min-width: 1110px) {
   section > div.menu > ul,
   section > div.menu > ol {
     grid-template-columns: 25% 25% 25%;
@@ -168,6 +168,22 @@ div.card ol {
 
   div.card > img {
     height: 150px;
+    border-radius: 5px;
+  }
+}
+
+@media screen and (max-width: 1109px) and (min-width: 980px) {
+  section > div.menu > ul,
+  section > div.menu > ol {
+    grid-template-columns: 25% 25% 25%;
+    row-gap: 20px;
+    column-gap: 20px;
+
+    width: 98vw;
+  }
+
+  div.card > img {
+    width: 200px;
     border-radius: 5px;
   }
 }
