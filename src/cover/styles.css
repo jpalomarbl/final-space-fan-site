@@ -75,6 +75,11 @@ section.about h1 {
     margin-right: 30px;
     margin-bottom: 30px;
   }
+
+  .hero-quote h2 {
+    font-size: 35px;
+    margin: 50px 0 25px 0;
+  }
 }
 
 @media screen and (max-width: 864px) and (min-width: 500px) {
