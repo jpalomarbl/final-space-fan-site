@@ -12,19 +12,53 @@
 
     <nav>
       <ul>
-        <li id="categories" class=""><a href="../category/category.html">Categories</a></li>
-        <li id="presentation" class=""><a href="../presentation/presentation.html">Presentation</a></li>
-        <li id="links" class=""><a href="../links/links.html">Links</a></li>
+        <li id="categories" class="">
+          <a href="../category/category.html">Categories</a>
+        </li>
+        <li id="presentation" class="">
+          <a href="../presentation/presentation.html">Presentation</a>
+        </li>
+        <li id="links" class="">
+          <a href="../links/links.html">Links</a>
+        </li>
+        <li id="hamburguer" class="hamburguer">
+          <i class="fa-solid fa-bars"></i>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <div id="overlay" class="overlay">
+    <nav class="overlay">
+      <ul>
+        <li id="categories" class="">
+          <a href="../category/category.html">Categories</a>
+        </li>
+        <li id="presentation" class="">
+          <a href="../presentation/presentation.html">Presentation</a>
+        </li>
+        <li id="links" class="">
+          <a href="../links/links.html">Links</a>
+        </li>
       </ul>
     </nav>
   </div>
 </header>
+
+<script
+  src="https://kit.fontawesome.com/2ccf5065df.js"
+  crossorigin="anonymous"
+></script>
 
 <script>
   const number = +document.getElementById("number-selected").innerText;
   const categories_li = document.getElementById("categories");
   const presentation_li = document.getElementById("presentation");
   const links_li = document.getElementById("links");
+  const hamburguerMenu = document.getElementById('overlay');
+  const hamburguerButton = document.getElementById('hamburguer');
+
+  console.log(window.innerWidth);
 
   switch (number) {
     case 0:
@@ -39,6 +73,11 @@
       links_li.classList.add("selected");
       break;
   }
+
+  hamburguerButton.addEventListener('click', (event) => {
+    hamburguerButton.classList.toggle("open");
+    hamburguerMenu.classList.toggle("open");
+  });
 </script>
 
 <style>
@@ -79,8 +118,6 @@
   }
 
   nav li {
-    display: inline-block;
-    margin-left: 70px;
     padding-top: 40px;
     height: 100%;
     position: relative;
@@ -144,5 +181,78 @@
 
   nav li:hover a::after {
     width: 100%;
+  }
+
+  nav li.hamburguer:hover {
+    transition: all 70ms ease-in;
+    color:#a45e5b;
+  }
+
+  nav li.hamburguer.open {
+    transition: all 70ms ease-in;
+    color:#a45e5b;
+  }
+
+  div.overlay {
+    background: linear-gradient(to bottom, #9f9ec4, #a45e5b);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 0px;
+    overflow: hidden;
+
+    transition: height 250ms ease-in-out;
+  }
+
+  div.open {
+    height: 200px;
+  }
+
+  div.overlay ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-bottom: 40px;
+  }
+
+@media screen and (min-width: 980px) {
+    nav li.hamburguer {
+      display: none;
+    }
+
+    nav li {
+      display: inline-block;
+      margin-left: 70px;
+    }
+  }
+
+  @media screen and (max-width: 979px) and (min-width: 790px) {
+    nav li.hamburguer {
+      display: none;
+    }
+
+    nav li {
+      display: inline-block;
+      margin-left: 20px;
+    }
+  }
+
+  @media screen and (max-width: 789) {
+    nav:not(.overlay) li {
+      display: none;
+    }
+
+    nav li.hamburguer {
+      display: block;
+
+      font-size: 40px;
+      color: #1b1a2f;
+
+      margin-top: 20px;
+      padding: 10px;
+    }
   }
 </style>
