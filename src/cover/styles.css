@@ -26,11 +26,6 @@ body {
   background-color: #a45e5b;
 }
 
-.hero-quote h2 {
-  font-size: 35px;
-  margin: 50px 0 25px 0;
-}
-
 .hero-quote h3 {
   font-size: 20px;
   font-weight: lighter;
@@ -48,18 +43,8 @@ body {
   font-weight: bold;
 }
 
-section.about {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 20px 30px 20px 30px;
-
-  border-radius: 7px;
-  background-color:rgb(18, 18, 18, 0.5);
-}
-
 section.about > div:first-of-type {
-  display:block;
+  display: block;
   margin: 0 30px 20px 30px;
 }
 
@@ -68,14 +53,91 @@ section.about p {
 }
 
 section.about h1 {
-  display:block;
+  display: block;
   font-size: 35px;
 }
 
-section.about img {
-  height: 300px;
+@media screen and (min-width: 865px) {
+  section.about {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 30px 20px 30px;
 
-  margin-top: 70px;
-  margin-right: 30px;
-  margin-bottom: 30px;
+    border-radius: 7px;
+    background-color: rgb(18, 18, 18, 0.5);
+  }
+
+  section.about img {
+    height: 300px;
+
+    margin-top: 70px;
+    margin-right: 30px;
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 864px) and (min-width: 500px) {
+  section.about {
+    margin: 20px 30px 20px 30px;
+
+    border-radius: 7px;
+    background-color: rgb(18, 18, 18, 0.5);
+  }
+
+  section.about > div.about-img {
+    display: flex;
+    justify-content: center;
+  }
+
+  section.about img {
+    height: 300px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+  }
+
+  section.about h1 {
+    text-align: center;
+  }
+
+  .hero-quote h2 {
+    font-size: 35px;
+    margin: 50px 0 25px 0;
+  }
+}
+
+@media screen and (max-width: 499px) {
+  section.about {
+    margin: 20px 30px 20px 30px;
+
+    border-radius: 7px;
+    background-color: rgb(18, 18, 18, 0.5);
+  }
+
+  section.about {
+    margin: 20px 30px 20px 30px;
+
+    border-radius: 7px;
+    background-color: rgb(18, 18, 18, 0.5);
+  }
+
+  section.about > div.about-img {
+    display: flex;
+    justify-content: center;
+  }
+
+  section.about img {
+    height: 300px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+  }
+
+  section.about h1 {
+    text-align: center;
+  }
+
+  .hero-quote h2 {
+    font-size: 30px;
+    margin: 50px 10px 25px 10px;
+  }
 }
