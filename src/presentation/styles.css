@@ -1,0 +1,143 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(to bottom, #343254, #121212);
+  background-attachment: fixed;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+}
+
+div.detail-container p {
+  display: block;
+
+  margin-top: 5px;
+  padding: 0;
+}
+
+div.detail-container a {
+  color: #8f4542;
+  text-decoration: none;
+}
+
+div.detail-container a:hover {
+  color: #a45e5b;
+}
+
+div.info-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 7px;
+  border-width: 2px;
+  border-color: #a45e5b;
+  border-style: solid;
+  background-color: rgb(18, 18, 18, 0.5);
+}
+
+div.info-card > h1 {
+    font-size: 25px;
+    text-align: center;
+
+    margin: 30px;
+}
+
+div.info-card > iframe {
+  width: 80%;
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
+
+div.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+
+  border-radius: 7px;
+  border-width: 2px;
+  border-color: #9f9ec4;
+  border-style: solid;
+  background-color: rgb(235, 235, 235, 0.5);
+
+  color: #1b1a2f;
+}
+
+div.content > ul {
+  margin: 0;
+}
+
+div.content > ul > li:not(:first-child) {
+  margin-top: 10px;
+}
+div.info-card h2.alive,
+div.info-card h2.deceased,
+div.info-card h2.unknown {
+  border-radius: 5px;
+  border-color: rgb(235, 235, 235, 0.8);
+  border-width: 3px;
+  border-style: solid;
+
+  padding: 5px;
+}
+
+div.info-card h2.alive {
+  background-color: rgb(50, 140, 50);
+}
+
+div.info-card h2.deceased {
+  background-color: rgb(183, 54, 54);
+}
+
+div.info-card h2.unknown {
+  background-color: gray;
+}
+
+@media screen and (min-width: 1475px) {
+  div.detail-container {
+    display: grid;
+
+    grid-template-columns: 35% 60%;
+    grid-template-rows: 100%;
+    column-gap: 2%;
+  }
+
+  div.info-card {
+    margin: 40px 0 40px 40px;
+  }
+
+  div.content {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+}
+
+@media screen and (max-width: 1474px) {
+  div.detail-container {
+    display: grid;
+    grid-template-columns: 100%;
+    row-gap: 2%;
+  }
+
+  div.info-card {
+    margin: 40px 20px 0 20px;
+  }
+
+  div.content {
+    margin: 0 20px 40px 20px;
+
+    text-align: center;
+  }
+
+  div.content > ul {
+    text-align: left;
+  }
+}
