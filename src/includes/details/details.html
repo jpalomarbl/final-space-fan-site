@@ -1,0 +1,238 @@
+<div class="parent">
+  <p id="type">{{type}}</p>
+  <p id="id">{{id}}</p>
+
+  <div class="detail-container">
+    <div id="info-card" class="info-card"></div>
+    <div id="content" class="content">
+      <h2>More info</h2>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script>
+  const type = document.getElementById("type").innerText;
+  const id = document.getElementById("id").innerText;
+
+  const infoCard = document.getElementById("info-card");
+  const content = document.getElementById("content");
+
+  // Card elements
+  const title = document.createElement("h1");
+  const elementImg = document.createElement("img");
+  const cardAttr = document.createElement("h2");
+
+  // Content elements
+  const paragraphs = [
+    document.createElement("p"),
+    document.createElement("p"),
+    document.createElement("p"),
+  ];
+  const listTitle = document.createElement("h3");
+  const list = document.createElement("ul");
+  let listElements = [];
+
+  axios
+    .get(`https://finalspaceapi.com/api/v0/${type}/${id}`)
+    .then((response) => {
+      console.log(response.data);
+
+      // Common attirbutes
+      title.innerText = response.data.name;
+      elementImg.src = response.data.img_url;
+
+      // Unique attributes
+      if (type === "location") {
+        cardAttr.innerText = `Type: ${response.data.type}`;
+        cardAttr.classList.add("location-type");
+
+        paragraphs[0].innerText = `In the Final Space universe, ${
+          response.data.name
+        } is a ${response.data.type.toLowerCase()}.`;
+
+        if (response.data.inhabitants.length == 0) {
+          paragraphs[1].innerText = `It isn't inhabited by any species.`;
+        } else if (response.data.inhabitants.length == 1) {
+          paragraphs[1].innerText = `It is the home ${response.data.type.toLowerCase()} of the ${
+            response.data.inhabitants[0]
+          }.`;
+        } else {
+          paragraphs[1].innerText = `It is the home ${response.data.type.toLowerCase()} of `;
+
+          response.data.inhabitants.forEach((inhabitant, index) => {
+            if (index == response.data.inhabitants.length - 1)
+              paragraphs[1].innerText += `and ${inhabitant.toLowerCase()}.`;
+            else paragraphs[1].innerText += ` ${inhabitant.toLowerCase()}, `;
+          });
+        }
+
+        if (response.data.notable_residents.length > 0) {
+          response.data.notable_residents.forEach((resident, index) => {
+            axios.get(resident).then((responseResident) => {
+              if (index == response.data.notable_residents.length - 2) {
+                paragraphs[2].innerHTML += `<a href="/details/${responseResident.data.name
+                  .toLowerCase()
+                  .replace(/(\s+\w)/g, function (match) {
+                    return match.trim().toUpperCase();
+                  })}.html">${responseResident.data.name}</a> `;
+              } else if (index == response.data.notable_residents.length - 1) {
+                paragraphs[2].innerHTML += `and <a href="/details/${responseResident.data.name
+                  .toLowerCase()
+                  .replace(/(\s+\w)/g, function (match) {
+                    return match.trim().toUpperCase();
+                  })}.html">${responseResident.data.name}</a> `;
+
+                paragraphs[2].innerHTML += `live here.`;
+              } else {
+                paragraphs[2].innerHTML += `<a href="/details/${responseResident.data.name
+                  .toLowerCase()
+                  .replace(/(\s+\w)/g, function (match) {
+                    return match.trim().toUpperCase();
+                  })}.html">${responseResident.data.name}</a>, `;
+              }
+            });
+          });
+        } else {
+          paragraphs[2].innerText = `${response.data.name} has no notable residents.`;
+        }
+
+        listTitle.innerText = "Species:";
+
+        response.data.inhabitants.forEach((inhabitant) => {
+          listElements.push(document.createElement("li"));
+          listElements[listElements.length - 1].innerText = inhabitant;
+        });
+      } else if (type === "character") {
+        cardAttr.innerText = `Status: ${response.data.status}`;
+        cardAttr.classList.add("character-status");
+      } else if (type === "episode") {
+        cardAttr.innerText = `Air date: ${response.data.air_date}`;
+        cardAttr.classList.add("episode-airDate");
+      }
+
+      infoCard.append(title);
+      infoCard.append(elementImg);
+      infoCard.append(cardAttr);
+
+      paragraphs.forEach((paragraph) => {
+        content.append(paragraph);
+      });
+
+      content.append(listTitle);
+
+      listElements.forEach((element) => {
+        list.append(element);
+      });
+
+      content.append(list);
+    });
+
+  console.log(window.innerWidth);
+</script>
+
+<style>
+  p#type,
+  p#id {
+    display: none;
+  }
+
+  div.detail-container p {
+    display: block;
+
+    margin-top: 5px;
+    padding: 0;
+  }
+
+  div.detail-container a {
+    color: #8f4542;
+    text-decoration: none;
+  }
+
+  div.detail-container a:hover,
+  div.detail-container a:visited {
+    color: #a45e5b;
+  }
+
+  div.info-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 7px;
+    border-width: 2px;
+    border-color: #a45e5b;
+    border-style: solid;
+    background-color: rgb(18, 18, 18, 0.5);
+  }
+
+  div.info-card > img {
+    width: 70%;
+    border-radius: 5px;
+  }
+
+  div.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+
+    border-radius: 7px;
+    border-width: 2px;
+    border-color: #9f9ec4;
+    border-style: solid;
+    background-color: rgb(235, 235, 235, 0.5);
+
+    color: #1b1a2f;
+  }
+
+  div.content > ul {
+    margin: 0;
+  }
+
+  div.content > ul > li:not(:first-child) {
+    margin-top: 10px;
+  }
+
+  @media screen and (min-width: 940px) {
+    div.detail-container {
+      display: grid;
+
+      grid-template-columns: 35% 60%;
+      grid-template-rows: 100%;
+      column-gap: 2%;
+    }
+
+    div.info-card {
+      margin: 40px 0 0 40px;
+    }
+
+    div.content {
+      margin-top: 40px;
+    }
+  }
+
+  @media screen and (max-width: 939px) {
+    div.detail-container {
+      display: grid;
+      grid-template-columns: 100%;
+      row-gap: 2%;
+    }
+
+    div.info-card {
+      margin: 40px 20px 0 20px;
+    }
+
+    div.content {
+      margin: 0 20px 40px 20px;
+
+      text-align: center;
+    }
+
+    div.content > ul {
+      text-align: left;
+    }
+  }
+</style>
