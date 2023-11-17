@@ -55,7 +55,7 @@ axios.get("https://finalspaceapi.com/api/v0/character/").then((response) => {
     let characterElement = document.createElement("li");
 
     let cardLink = document.createElement("a");
-    cardLink.href = `../details/details.html/${character.name
+    cardLink.href = `../details/${character.name
       .toLowerCase()
       .replace(/(\s+\w)/g, function (match) {
         return match.trim().toUpperCase();
@@ -101,7 +101,7 @@ axios.get("https://finalspaceapi.com/api/v0/episode/").then((response) => {
     let episodeElement = document.createElement("li");
 
     let cardLink = document.createElement("a");
-    cardLink.href = `../details/details.html/${episode.name
+    cardLink.href = `../details/${episode.name
       .toLowerCase()
       .replace(/(\s+\w)/g, function (match) {
         return match.trim().toUpperCase();
