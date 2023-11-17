@@ -97,11 +97,25 @@
           paragraphs[2].innerText = `${response.data.name} has no notable residents.`;
         }
 
+        paragraphs.forEach((paragraph) => {
+          content.append(paragraph);
+        });
+
         listTitle.innerText = "Species:";
 
-        response.data.inhabitants.forEach((inhabitant) => {
+        response.data.inhabitants.forEach((inhabitant, index) => {
           listElements.push(document.createElement("li"));
           listElements[listElements.length - 1].innerText = inhabitant;
+
+          if (index == response.data.inhabitants.length - 1) {
+            content.append(listTitle);
+
+            listElements.forEach((element) => {
+              list.append(element);
+            });
+
+            content.append(list);
+          }
         });
       } else if (type === "character") {
         cardAttr.innerText = response.data.status;
@@ -167,34 +181,128 @@
           });
         }
 
+        paragraphs.forEach((paragraph) => {
+          content.append(paragraph);
+        });
+
         if (response.data.alias.length > 0) {
           listTitle.innerText = "Known aliases:";
 
-          response.data.alias.forEach((alias) => {
+          response.data.alias.forEach((alias, index) => {
             listElements.push(document.createElement("li"));
             listElements[listElements.length - 1].innerText = alias;
+
+            if (index == response.data.alias.length - 1) {
+              content.append(listTitle);
+
+              listElements.forEach((element) => {
+                list.append(element);
+              });
+
+              content.append(list);
+            }
           });
         }
       } else if (type === "episode") {
-        cardAttr.innerText = `Air date: ${response.data.air_date}`;
-        cardAttr.classList.add("episode-airDate");
+        const airDate = response.data.air_date.split("/");
+
+        cardAttr.innerText = `Air date: ${airDate[1]}/${airDate[0]}/${airDate[2]}`;
+
+        paragraphs[0].innerText = `This episode aired the ${airDate[1]}`;
+
+        switch (+airDate[1]) {
+          case 1:
+            paragraphs[0].innerText += "st";
+            break;
+          case 2:
+            paragraphs[0].innerText += "nd";
+            break;
+          case 3:
+            paragraphs[0].innerText += "rd";
+            break;
+          default:
+            paragraphs[0].innerText += "th";
+        }
+
+        paragraphs[0].innerText += ` of `;
+
+        switch (+airDate[0]) {
+          case 1:
+            paragraphs[0].innerText += "January";
+            break;
+          case 2:
+            paragraphs[0].innerText += "February";
+            break;
+          case 3:
+            paragraphs[0].innerText += "March";
+            break;
+          case 4:
+            paragraphs[0].innerText += "April";
+            break;
+          case 5:
+            paragraphs[0].innerText += "May";
+            break;
+          case 6:
+            paragraphs[0].innerText += "June";
+            break;
+          case 7:
+            paragraphs[0].innerText += "July";
+            break;
+          case 8:
+            paragraphs[0].innerText += "August";
+            break;
+          case 9:
+            paragraphs[0].innerText += "September";
+            break;
+          case 10:
+            paragraphs[0].innerText += "October";
+            break;
+          case 11:
+            paragraphs[0].innerText += "November";
+            break;
+          case 12:
+            paragraphs[0].innerText += "December";
+            break;
+        }
+
+        paragraphs[0].innerText += ` of ${airDate[2]}.`;
+
+        paragraphs[1].innerText = `It was written by ${response.data.writer}.`;
+        paragraphs[2].innerText = `And it was directed by ${response.data.director}.`;
+
+        paragraphs.forEach((paragraph) => {
+          content.append(paragraph);
+        });
+
+        listTitle.innerText = "Character appearances:";
+
+        response.data.characters.forEach((character, index) => {
+          axios.get(character).then((responseCharacter) => {
+            listElements.push(document.createElement("li"));
+            listElements[
+              listElements.length - 1
+            ].innerHTML = `<a href="/details/${responseCharacter.data.name
+              .toLowerCase()
+              .replace(/(\s+\w)/g, function (match) {
+                return match.trim().toUpperCase();
+              })}.html">${responseCharacter.data.name}</a>`;
+
+            if (index == response.data.characters.length - 1) {
+              content.append(listTitle);
+
+              listElements.forEach((element) => {
+                list.append(element);
+              });
+
+              content.append(list);
+            }
+          });
+        });
       }
 
       infoCard.append(title);
       infoCard.append(elementImg);
       infoCard.append(cardAttr);
-
-      paragraphs.forEach((paragraph) => {
-        content.append(paragraph);
-      });
-
-      content.append(listTitle);
-
-      listElements.forEach((element) => {
-        list.append(element);
-      });
-
-      content.append(list);
     });
 
   console.log(window.innerWidth);
