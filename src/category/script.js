@@ -52,6 +52,10 @@ axios.get("https://finalspaceapi.com/api/v0/character/").then((response) => {
   console.log("characters", response.data);
 
   response.data.forEach((character) => {
+    console.log(character.hair);
+  })
+
+  response.data.forEach((character) => {
     let characterElement = document.createElement("li");
 
     let cardLink = document.createElement("a");
