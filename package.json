@@ -5,6 +5,7 @@
   "browserslist": "cover 99% in ES, last 5 versions, not dead",
   "source": [
     "index.html",
+    "src/cover/index.html",
     "src/category/category.html",
     "src/links/links.html",
     "src/presentation/presentation.html",
@@ -89,7 +90,7 @@
     "src/details/theLostSpy.html",
     "src/details/theSetUp.html",
     "src/details/theDescentIntoDarkness.html",
-    "src/details/theSixthKey.html",
+    "src/details/theSixthKey.html"
   ],
   "scripts": {
     "start": "npm-run-all clean parcel:dev",
