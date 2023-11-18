@@ -42,6 +42,7 @@
       // Common attirbutes
       title.innerText = response.data.name;
       elementImg.src = response.data.img_url;
+      elementImg.alt = `Picture of ${response.data.name}.`;
 
       // Unique attributes
       if (type === "location") {
