@@ -54,7 +54,7 @@
         if (response.data.inhabitants.length == 0) {
           paragraphs[1].innerText = `It isn't inhabited by any species.`;
         } else if (response.data.inhabitants.length == 1) {
-          paragraphs[1].innerText = `It is the home ${response.data.type.toLowerCase()} of the ${
+          paragraphs[1].innerText = `It is the home ${response.data.type.toLowerCase()} of ${
             response.data.inhabitants[0]
           }.`;
         } else {
@@ -70,7 +70,13 @@
         if (response.data.notable_residents.length > 0) {
           response.data.notable_residents.forEach((resident, index) => {
             axios.get(resident).then((responseResident) => {
-              if (index == response.data.notable_residents.length - 2) {
+              if (response.data.notable_residents.length === 1) {
+                paragraphs[2].innerHTML += `<a href="/details/${responseResident.data.name
+                  .toLowerCase()
+                  .replace(/(\s+\w)/g, function (match) {
+                    return match.trim().toUpperCase();
+                  })}.html">${responseResident.data.name}</a> lives here.`;
+              } else if (index == response.data.notable_residents.length - 2) {
                 paragraphs[2].innerHTML += `<a href="/details/${responseResident.data.name
                   .toLowerCase()
                   .replace(/(\s+\w)/g, function (match) {

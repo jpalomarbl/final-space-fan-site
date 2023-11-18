@@ -78,28 +78,6 @@ div.content > ul {
 div.content > ul > li:not(:first-child) {
   margin-top: 10px;
 }
-div.info-card h2.alive,
-div.info-card h2.deceased,
-div.info-card h2.unknown {
-  border-radius: 5px;
-  border-color: rgb(235, 235, 235, 0.8);
-  border-width: 3px;
-  border-style: solid;
-
-  padding: 5px;
-}
-
-div.info-card h2.alive {
-  background-color: rgb(50, 140, 50);
-}
-
-div.info-card h2.deceased {
-  background-color: rgb(183, 54, 54);
-}
-
-div.info-card h2.unknown {
-  background-color: gray;
-}
 
 @media screen and (min-width: 1475px) {
   div.detail-container {
