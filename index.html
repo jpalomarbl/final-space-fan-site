@@ -1,1 +1,55 @@
-<h1>HOLA</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Final Space Fan Site!</title>
+  </head>
+  <body>
+    <include src="./header/header.html" locals='{ "current": "-1"}'></include>
+
+    <section class="hero-quote">
+      <h2>Funny random quote!</h2>
+      <h3>
+        <span id="quote" class="quote"> "Example quote..." </span> -
+        <span id="author" class="author"> Example author. </span>
+      </h3>
+    </section>
+
+    <section class="about">
+      <div>
+        <h1>What's this all about?</h1>
+        <p>
+          Welcome to our fan page dedicated to the thrilling series, Final
+          Space! This website is a class project for the “HTML and CSS - Aula 1”
+          course at the Online University of Catalonia. We’ve used the Final
+          Space API to bring you the most accurate and up-to-date information
+          about the show.
+        </p>
+        <p>
+          Our website is divided into several sections for your convenience. In
+          “Categories”, you’ll find detailed information about the series,
+          neatly organized by characters, locations, and episodes. The
+          “Presentation” section provides an in-depth overview of our website
+          and its features. Lastly, our “Links” section contains all the
+          documentation and sources we used to gather content for the website.
+          Here, you’ll also find copyright attributions and other important
+          details. We’ve put a lot of effort into this project and we hope you
+          enjoy exploring the universe of Final Space as much as we do!
+        </p>
+      </div>
+
+      <div class="about-img">
+        <img
+          src="../img/avocato_cover.png"
+          alt="One of the main characters (Avocato)."
+        />
+      </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>

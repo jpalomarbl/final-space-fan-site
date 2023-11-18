@@ -4,7 +4,7 @@
   "description": "A cool website about one of the best animated scy-fy series.",
   "browserslist": "cover 99% in ES, last 5 versions, not dead",
   "source": [
-    "src/cover/index.html",
+    "index.html",
     "src/category/category.html",
     "src/links/links.html",
     "src/presentation/presentation.html",
@@ -90,7 +90,6 @@
     "src/details/theSetUp.html",
     "src/details/theDescentIntoDarkness.html",
     "src/details/theSixthKey.html",
-    "index.html"
   ],
   "scripts": {
     "start": "npm-run-all clean parcel:dev",
