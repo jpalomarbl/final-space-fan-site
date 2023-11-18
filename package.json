@@ -89,7 +89,8 @@
     "src/details/theLostSpy.html",
     "src/details/theSetUp.html",
     "src/details/theDescentIntoDarkness.html",
-    "src/details/theSixthKey.html"
+    "src/details/theSixthKey.html",
+    "index.html"
   ],
   "scripts": {
     "start": "npm-run-all clean parcel:dev",
