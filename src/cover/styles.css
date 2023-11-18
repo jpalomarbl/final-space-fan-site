@@ -82,6 +82,7 @@ section.about h1 {
   .hero-quote h2 {
     font-size: 35px;
     margin: 50px 0 25px 0;
+    text-align: center;
   }
 }
 
@@ -111,6 +112,7 @@ section.about h1 {
   .hero-quote h2 {
     font-size: 35px;
     margin: 50px 0 25px 0;
+    text-align: center;
   }
 }
 
@@ -147,5 +149,6 @@ section.about h1 {
   .hero-quote h2 {
     font-size: 30px;
     margin: 50px 10px 25px 10px;
+    text-align: center;
   }
 }

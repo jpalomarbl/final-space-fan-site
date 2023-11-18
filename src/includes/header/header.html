@@ -12,13 +12,15 @@
 
     <nav>
       <ul>
-        <li id="categories" class="">
+        <li id="categories" class="categories">
           <a href="../category/category.html">Categories</a>
         </li>
-        <li id="presentation" class="">
-          <a href="../presentation/presentation.html">Presentation</a>
+        <li id="presentation" class="presentation">
+          <a href="../presentation/presentation.html"
+            >Presentation</a
+          >
         </li>
-        <li id="links" class="">
+        <li id="links" class="links">
           <a href="../links/links.html">Links</a>
         </li>
         <li id="hamburguer" class="hamburguer">
@@ -31,13 +33,13 @@
   <div id="overlay" class="overlay">
     <nav class="overlay">
       <ul>
-        <li id="categories" class="">
+        <li id="categories" class="categories">
           <a href="../category/category.html">Categories</a>
         </li>
-        <li id="presentation" class="">
+        <li id="presentation" class="presentation">
           <a href="../presentation/presentation.html">Presentation</a>
         </li>
-        <li id="links" class="">
+        <li id="links" class="links">
           <a href="../links/links.html">Links</a>
         </li>
       </ul>
@@ -53,10 +55,20 @@
 <script>
   const number = +document.getElementById("number-selected").innerText;
   const categories_li = document.getElementById("categories");
+  const categories_link = document.querySelector(".categories > a");
+  const categoriesOverlay_link = document.querySelector(
+    ".overlay li.categories > a"
+  );
   const presentation_li = document.getElementById("presentation");
+  const presentation_link = document.querySelector(".presentation > a");
+  const presentationOverlay_link = document.querySelector(
+    ".overlay li.presentation > a"
+  );
   const links_li = document.getElementById("links");
-  const hamburguerMenu = document.getElementById('overlay');
-  const hamburguerButton = document.getElementById('hamburguer');
+  const links_link = document.querySelector(".links > a");
+  const linksOverlay_link = document.querySelector(".overlay li.links > a");
+  const hamburguerMenu = document.getElementById("overlay");
+  const hamburguerButton = document.getElementById("hamburguer");
 
   switch (number) {
     case 0:
@@ -72,9 +84,16 @@
       break;
   }
 
-  hamburguerButton.addEventListener('click', (event) => {
+  hamburguerButton.addEventListener("click", (event) => {
     hamburguerButton.classList.toggle("open");
     hamburguerMenu.classList.toggle("open");
+  });
+
+  hamburguerButton.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" && document.activeElement === hamburguerButton) {
+      hamburguerButton.classList.toggle("open");
+      hamburguerMenu.classList.toggle("open");
+    }
   });
 </script>
 
@@ -183,12 +202,12 @@
 
   nav li.hamburguer:hover {
     transition: all 70ms ease-in;
-    color:#a45e5b;
+    color: #a45e5b;
   }
 
   nav li.hamburguer.open {
     transition: all 70ms ease-in;
-    color:#a45e5b;
+    color: #a45e5b;
   }
 
   div.overlay {
@@ -216,7 +235,7 @@
     margin-bottom: 40px;
   }
 
-@media screen and (min-width: 980px) {
+  @media screen and (min-width: 980px) {
     nav li.hamburguer {
       display: none;
     }
@@ -238,7 +257,7 @@
     }
   }
 
-  @media screen and (max-width: 789) {
+  @media screen and (max-width: 789px) {
     nav:not(.overlay) li {
       display: none;
     }
