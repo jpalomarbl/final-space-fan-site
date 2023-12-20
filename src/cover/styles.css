@@ -11,6 +11,10 @@ body {
   display: flex;
   flex-direction: column;
   font-family: "Montserrat", sans-serif;
+  min-height: 100vh;
+
+  overflow-x: hidden;
+
   margin: 0;
 }
 
@@ -55,6 +59,27 @@ section.about p {
 section.about h1 {
   display: block;
   font-size: 35px;
+}
+
+
+div.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: #fff;
+    -webkit-animation: flicker 10s infinite;
+}
+
+@-webkit-keyframes flicker {
+    0%{
+        opacity: 0.7;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0.7;
+    }
 }
 
 @media screen and (min-width: 865px) {

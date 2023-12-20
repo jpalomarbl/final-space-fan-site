@@ -1,0 +1,134 @@
+<footer>
+  <div class="container">
+    <p id="number-selected">{{ current }}</p>
+
+    <nav>
+      <ul>
+        <li id="categories" class="categories">
+          <a href="../category/category.html">Categories</a>
+        </li>
+        <li id="presentation" class="presentation">
+          <a href="../presentation/presentation.html">Presentation</a>
+        </li>
+        <li id="links" class="links">
+          <a href="../links/links.html">Links</a>
+        </li>
+      </ul>
+    </nav>
+
+    <a class="logo" href="../cover/index.html">
+      <img
+        src="../img/Final_Space_Logo.png"
+        alt="Final Space Fan Site Logo"
+        class="logo"
+      />
+    </a>
+  </div>
+</footer>
+
+<script
+  src="https://kit.fontawesome.com/2ccf5065df.js"
+  crossorigin="anonymous"
+></script>
+
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+
+  * {
+    box-sizing: border-box;
+  }
+
+  p {
+    display: none;
+  }
+
+  footer {
+    background: #9f9ec4;
+    font-family: "Montserrat", sans-serif;
+    margin-top: auto;
+
+    width: 100vw;
+  }
+
+  footer div.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  footer nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin-left: 10rem;
+  }
+
+  footer nav a {
+    color: #1b1a2f;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  footer nav ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  footer ul a {
+    font-size: 0.9rem;
+  }
+
+  footer nav li a {
+    text-align: left;
+  }
+
+  footer nav li {
+    cursor: pointer;
+  }
+
+  footer nav li:hover a {
+    color: #2f2f47;
+  }
+
+  footer a.logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin-right: 10rem;
+  }
+
+  footer img {
+    width: 10rem;
+  }
+
+  @media screen and (max-width: 640px) {
+    footer div.container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    footer nav {
+      margin: 0;
+    }
+
+    footer a.logo {
+      margin-right: 0;
+
+      margin-bottom: 2vh;
+    }
+
+    footer nav li {
+      text-align: center;
+    }
+
+    footer img {
+      width: 8rem;
+    }
+  }
+</style>

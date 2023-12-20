@@ -108,39 +108,39 @@
     display: none;
   }
 
-  .container {
+  header .container {
     width: 80%;
     margin: 0 auto;
   }
 
-  .container img {
+  header .container img {
     padding-top: 10px;
     padding-bottom: 10px;
   }
 
-  .logo {
+  header .logo {
     height: 100px;
     float: left;
   }
 
-  nav {
+  header nav {
     float: right;
   }
 
-  nav ul {
+  header nav ul {
     margin: 0;
     padding: 0;
     list-style: none;
     height: 100%;
   }
 
-  nav li {
+  header nav li {
     padding-top: 40px;
     height: 100%;
     position: relative;
   }
 
-  nav a {
+  header nav a {
     color: #1b1a2f;
     text-decoration: none;
     text-transform: uppercase;
@@ -156,7 +156,7 @@
     margin: 0;
   }
 
-  nav li:not(.selected) a::after {
+  header nav li:not(.selected) a::after {
     content: "";
     display: block;
     margin-top: 25px;
@@ -170,15 +170,15 @@
     transition: all ease-in-out 250ms;
   }
 
-  nav li:not(.selected) {
+  header nav li:not(.selected) {
     cursor: pointer;
   }
 
-  nav li:not(.selected):hover a {
+  header nav li:not(.selected):hover a {
     color: #2f2f47;
   }
 
-  nav li.selected a::after {
+  header nav li.selected a::after {
     content: "";
     display: block;
     margin-top: 25px;
@@ -190,27 +190,27 @@
     position: absolute;
   }
 
-  nav li.selected a {
+  header nav li.selected a {
     color: #a45e5b;
     pointer-events: none;
     cursor: default;
   }
 
-  nav li:hover a::after {
+  header nav li:hover a::after {
     width: 100%;
   }
 
-  nav li.hamburguer:hover {
+  header nav li.hamburguer:hover {
     transition: all 70ms ease-in;
     color: #a45e5b;
   }
 
-  nav li.hamburguer.open {
+  header nav li.hamburguer.open {
     transition: all 70ms ease-in;
     color: #a45e5b;
   }
 
-  div.overlay {
+  header div.overlay {
     background: linear-gradient(to bottom, #9f9ec4, #a45e5b);
 
     display: flex;
@@ -223,11 +223,11 @@
     transition: height 250ms ease-in-out;
   }
 
-  div.open {
+  header div.open {
     height: 200px;
   }
 
-  div.overlay ul {
+  header div.overlay ul {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -236,33 +236,33 @@
   }
 
   @media screen and (min-width: 980px) {
-    nav li.hamburguer {
+    header nav li.hamburguer {
       display: none;
     }
 
-    nav li {
+    header nav li {
       display: inline-block;
       margin-left: 70px;
     }
   }
 
   @media screen and (max-width: 979px) and (min-width: 790px) {
-    nav li.hamburguer {
+    header nav li.hamburguer {
       display: none;
     }
 
-    nav li {
+    header nav li {
       display: inline-block;
       margin-left: 20px;
     }
   }
 
   @media screen and (max-width: 789px) {
-    nav:not(.overlay) li {
+    header nav:not(.overlay) li {
       display: none;
     }
 
-    nav li.hamburguer {
+    header nav li.hamburguer {
       display: block;
 
       font-size: 40px;
