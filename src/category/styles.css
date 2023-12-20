@@ -161,6 +161,26 @@ div.card ol {
   padding: 0;
 }
 
+div.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: #fff;
+    -webkit-animation: flicker 10s infinite;
+}
+
+@-webkit-keyframes flicker {
+    0%{
+        opacity: 0.7;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0.7;
+    }
+}
+
 @media screen and (min-width: 1110px) {
   section > div.menu > ul,
   section > div.menu > ol {
