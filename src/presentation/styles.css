@@ -160,10 +160,7 @@ div.animation > img {
     transform: translateY(+20px);
   }
   30% {
-    transform: rotate(0deg) translateY(-50px);
-  }
-  55% {
-    transform: rotate(360deg) translateY(-50px);
+    transform: translateY(-50px);
   }
   70% {
     transform: translateY(+10px);
