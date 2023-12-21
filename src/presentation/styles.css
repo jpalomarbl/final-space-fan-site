@@ -149,10 +149,10 @@ div.animation > img {
 
   margin-top: 3vh;
 
-  -webkit-animation: jump-and-bounce 2s infinite;
+  animation: jump-and-bounce 2s infinite;
 }
 
-@-webkit-keyframes jump-and-bounce {
+@keyframes jump-and-bounce {
   0% {
     transform: translateY(+10);
   }
