@@ -9,13 +9,353 @@
   <body>
     <include src="./header/header.html" locals='{ "current": "-1"}'></include>
 
-    <include
-      src="./details/details.html"
-      locals='{ "type": "episode", "id": "2" }'
-    ></include>
+    <div class="parent">
+      <div class="detail-container">
+        <div id="info-card" class="info-card"></div>
+        <div id="content" class="content">
+          <h2>More info</h2>
+        </div>
+        <div class="pictures">
+          <picture>
+            <source
+              media="(min-width: 1278px)"
+              srcset="../img/other/150/lordCommander.jpg"
+            />
+            <source
+              media="(min-width: 940px)"
+              srcset="../img/other/100/lordCommander.jpeg"
+            />
+            <source
+              media="(max-width: 939px)"
+              srcset="../img/other/50/lordCommander.jpg"
+            />
+            <img
+              src="../img/other/100/lordCommander.jpeg"
+              alt="Gary Goodspeed"
+            />
+          </picture>
+
+          <picture>
+            <source
+              media="(min-width: 1278px)"
+              srcset="../img/other/50/triborg.jpg"
+            />
+            <source
+              media="(min-width: 940px)"
+              srcset="../img/other/100/triborg.jpg"
+            />
+            <source
+              media="(max-width: 939px)"
+              srcset="../img/other/150/triborg.jpg"
+            />
+            <img
+              src="../img/other/100/triborg.jpg"
+              alt="Mooncake"
+            />
+          </picture>
+
+          <picture>
+            <source
+              media="(min-width: 1278px)"
+              srcset="../img/quinnErgon/50/quinnErgon1.jpg"
+            />
+            <source
+              media="(min-width: 940px)"
+              srcset="../img/quinnErgon/100/quinnErgon1.jpeg"
+            />
+            <source
+              media="(max-width: 939px)"
+              srcset="../img/quinnErgon/150/quinnErgon1.jpg"
+            />
+            <img
+              src="../img/quinnErgon/100/quinnErgon1.jpeg"
+              alt="Quinn Ergon"
+            />
+          </picture>
+        </div>
+      </div>
+    </div>
 
     <include src="./footer/footer.html" locals='{ "current": "-1" }'></include>
   </body>
 
   <script type="module" src="script.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  <script>
+    const type = "episode";
+    const id = 2;
+
+    const infoCard = document.getElementById("info-card");
+    const content = document.getElementById("content");
+
+    // Card elements
+    const title = document.createElement("h1");
+    const elementImg = document.createElement("img");
+    elementImg.id = "info-card-img";
+    const cardAttr = document.createElement("h2");
+
+    // Content elements
+    const paragraphs = [
+      document.createElement("p"),
+      document.createElement("p"),
+      document.createElement("p"),
+    ];
+    const listTitle = document.createElement("h3");
+    const list = document.createElement("ul");
+    let listElements = [];
+
+    axios
+      .get(`https://finalspaceapi.com/api/v0/${type}/${id}`)
+      .then((response) => {
+        console.log(response.data);
+
+        // Common attirbutes
+        title.innerText = response.data.name;
+        elementImg.src = response.data.img_url;
+        elementImg.alt = `Picture of ${response.data.name}.`;
+
+        // Unique attributes
+
+        const airDate = response.data.air_date.split("/");
+
+        cardAttr.innerText = `Air date: ${airDate[1]}/${airDate[0]}/${airDate[2]}`;
+
+        paragraphs[0].innerText = `This episode aired the ${airDate[1]}`;
+
+        switch (+airDate[1]) {
+          case 1:
+            paragraphs[0].innerText += "st";
+            break;
+          case 2:
+            paragraphs[0].innerText += "nd";
+            break;
+          case 3:
+            paragraphs[0].innerText += "rd";
+            break;
+          default:
+            paragraphs[0].innerText += "th";
+        }
+
+        paragraphs[0].innerText += ` of `;
+
+        switch (+airDate[0]) {
+          case 1:
+            paragraphs[0].innerText += "January";
+            break;
+          case 2:
+            paragraphs[0].innerText += "February";
+            break;
+          case 3:
+            paragraphs[0].innerText += "March";
+            break;
+          case 4:
+            paragraphs[0].innerText += "April";
+            break;
+          case 5:
+            paragraphs[0].innerText += "May";
+            break;
+          case 6:
+            paragraphs[0].innerText += "June";
+            break;
+          case 7:
+            paragraphs[0].innerText += "July";
+            break;
+          case 8:
+            paragraphs[0].innerText += "August";
+            break;
+          case 9:
+            paragraphs[0].innerText += "September";
+            break;
+          case 10:
+            paragraphs[0].innerText += "October";
+            break;
+          case 11:
+            paragraphs[0].innerText += "November";
+            break;
+          case 12:
+            paragraphs[0].innerText += "December";
+            break;
+        }
+
+        paragraphs[0].innerText += ` of ${airDate[2]}.`;
+
+        paragraphs[1].innerText = `It was written by ${response.data.writer}.`;
+        paragraphs[2].innerText = `And it was directed by ${response.data.director}.`;
+
+        paragraphs.forEach((paragraph) => {
+          content.append(paragraph);
+        });
+
+        listTitle.innerText = "Character appearances:";
+
+        response.data.characters.forEach((character, index) => {
+          axios.get(character).then((responseCharacter) => {
+            listElements.push(document.createElement("li"));
+            listElements[
+              listElements.length - 1
+            ].innerHTML = `<a href="/details/${responseCharacter.data.name
+              .toLowerCase()
+              .replace(/(\s+\w)/g, function (match) {
+                return match.trim().toUpperCase();
+              })}.html">${responseCharacter.data.name}</a>`;
+
+            if (index == response.data.characters.length - 1) {
+              content.append(listTitle);
+
+              listElements.forEach((element) => {
+                list.append(element);
+              });
+
+              content.append(list);
+            }
+          });
+        });
+
+        infoCard.append(title);
+        infoCard.append(elementImg);
+        infoCard.append(cardAttr);
+      });
+  </script>
+
+  <style>
+    div.detail-container p {
+      display: block;
+
+      margin-top: 5px;
+      padding: 0;
+    }
+
+    div.detail-container a {
+      color: #8f4542;
+      text-decoration: none;
+    }
+
+    div.detail-container a:hover {
+      color: #a45e5b;
+    }
+
+    div.info-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      border-radius: 7px;
+      border-width: 2px;
+      border-color: #a45e5b;
+      border-style: solid;
+      background-color: rgb(18, 18, 18, 0.5);
+    }
+
+    div.info-card > img {
+      width: 70%;
+      border-radius: 5px;
+    }
+
+    div.content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 40px;
+
+      border-radius: 7px;
+      border-width: 2px;
+      border-color: #9f9ec4;
+      border-style: solid;
+      background-color: rgb(235, 235, 235, 0.5);
+
+      color: #1b1a2f;
+    }
+
+    div.content > ul {
+      margin: 0;
+    }
+
+    div.content > ul > li:not(:first-child) {
+      margin-top: 10px;
+    }
+
+    div.pictures {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      background-color: #1b1a2f;
+      border-width: 2px;
+      border-color: #9f9ec4;
+      border-style: solid;
+      border-radius: 5px;
+
+      padding: 10px;
+      margin-bottom: 40px;
+    }
+
+    div.pictures img {
+      width: 15vw;
+      height: 15vw;
+
+      border-radius: 10px;
+
+      margin: 10px;
+    }
+
+    @media screen and (min-width: 940px) {
+      div.detail-container {
+        display: grid;
+
+        grid-template-columns: 35% 60%;
+        grid-template-rows: 100%;
+        column-gap: 2%;
+      }
+
+      div.info-card {
+        margin: 40px 0 40px 40px;
+      }
+
+      div.content {
+        margin-top: 40px;
+        margin-bottom: 40px;
+      }
+
+      div.pictures {
+        margin-left: 40px;
+        grid-column: span 2;
+      }
+    }
+
+    @media screen and (max-width: 939px) {
+      div.detail-container {
+        display: grid;
+        grid-template-columns: 100%;
+        row-gap: 2%;
+      }
+
+      div.info-card {
+        margin: 40px 20px 0 20px;
+      }
+
+      img#info-card-img {
+        clip-path: inset(10% 45% 15% 0);
+      }
+
+      div.content {
+        margin: 0 20px 40px 20px;
+
+        text-align: center;
+      }
+
+      div.content > ul {
+        text-align: left;
+      }
+
+      div.pictures {
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-bottom: 100px;
+      }
+    }
+  </style>
 </html>

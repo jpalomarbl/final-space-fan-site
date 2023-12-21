@@ -9,13 +9,370 @@
   <body>
     <include src="./header/header.html" locals='{ "current": "-1"}'></include>
 
-    <include
-      src="./details/details.html"
-      locals='{ "type": "character", "id": "3" }'
-    ></include>
-  </body>
+    <div class="parent">
+      <div class="detail-container">
+        <div id="info-card" class="info-card"></div>
+        <div id="content" class="content">
+          <h2>More info</h2>
+        </div>
+        <div class="pictures">
+          <picture>
+            <source
+              media="(min-width: 1278px)"
+              srcset="../img/quinnErgon/150/quinnErgon1.jpg"
+            />
+            <source
+              media="(min-width: 940px)"
+              srcset="../img/quinnErgon/100/quinnErgon1.jpeg"
+            />
+            <source
+              media="(max-width: 939px)"
+              srcset="../img/quinnErgon/50/quinnErgon1.jpg"
+            />
+            <img
+              src="../img/quinnErgon/100/quinnErgon1.jpeg"
+              alt="Gary Goodspeed"
+            />
+          </picture>
+
+          <picture>
+            <source
+              media="(min-width: 1278px)"
+              srcset="../img/quinnErgon/150/quinnErgon2.jpg"
+            />
+            <source
+              media="(min-width: 940px)"
+              srcset="../img/quinnErgon/100/quinnErgon2.jpeg"
+            />
+            <source
+              media="(max-width: 939px)"
+              srcset="../img/quinnErgon/50/quinnErgon2.jpg"
+            />
+            <img
+              src="../img/quinnErgon/100/quinnErgon2.jpeg"
+              alt="Gary Goodspeed"
+            />
+          </picture>
+
+          <picture>
+            <source
+              media="(min-width: 1278px)"
+              srcset="../img/quinnErgon/150/quinnErgon3.jpg"
+            />
+            <source
+              media="(min-width: 940px)"
+              srcset="../img/quinnErgon/100/quinnErgon3.jpg"
+            />
+            <source
+              media="(max-width: 939px)"
+              srcset="../img/quinnErgon/50/quinnErgon3.jpg"
+            />
+            <img
+              src="../img/quinnErgon/100/quinnErgon3.jpg"
+              alt="Gary Goodspeed"
+            />
+          </picture>
+        </div>
+      </div>
+    </div>
 
     <include src="./footer/footer.html" locals='{ "current": "-1" }'></include>
+  </body>
 
   <script type="module" src="script.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  <script>
+    const type = "character";
+    const id = 3;
+
+    const infoCard = document.getElementById("info-card");
+    const content = document.getElementById("content");
+
+    // Card elements
+    const title = document.createElement("h1");
+    const elementImg = document.createElement("img");
+    elementImg.id = "info-card-img";
+    const cardAttr = document.createElement("h2");
+
+    // Content elements
+    const paragraphs = [
+      document.createElement("p"),
+      document.createElement("p"),
+      document.createElement("p"),
+    ];
+    const listTitle = document.createElement("h3");
+    const list = document.createElement("ul");
+    let listElements = [];
+
+    axios
+      .get(`https://finalspaceapi.com/api/v0/${type}/${id}`)
+      .then((response) => {
+        console.log(response.data);
+
+        // Common attirbutes
+        title.innerText = response.data.name;
+        elementImg.src = response.data.img_url;
+        elementImg.alt = `Picture of ${response.data.name}.`;
+
+        cardAttr.innerText = response.data.status;
+
+        if (
+          response.data.status === "Alive" ||
+          response.data.status === "Operational"
+        )
+          cardAttr.classList.add("alive");
+        else if (
+          response.data.status === "Deceased" ||
+          response.data.status === "Deceased (Possessed)" ||
+          response.data.status === "Destroyed"
+        )
+          cardAttr.classList.add("deceased");
+        else cardAttr.classList.add("unknown");
+
+        paragraphs[0].innerText = `In the Final Space universe, ${response.data.name} is a `;
+
+        const gender = response.data.gender.toLowerCase().split(" ");
+
+        if (gender[gender.length - 1] === "male)") {
+          paragraphs[0].innerText += `male ${response.data.species.toLowerCase()}`;
+        } else if (gender[gender.length - 1] === "female)") {
+          paragraphs[0].innerText += `female ${response.data.species.toLowerCase()}`;
+        } else if (
+          gender[0] === "male" ||
+          gender[0] === "female" ||
+          gender[0] === "genderfluid" ||
+          gender[0] === "genderless"
+        ) {
+          paragraphs[0].innerText += `${response.data.gender.toLowerCase()} ${response.data.species.toLowerCase()}`;
+        } else {
+          paragraphs[0].innerText += `${response.data.species.toLowerCase()}`;
+        }
+
+        if (response.data.origin !== "Unknown") {
+          paragraphs[0].innerText += ` from ${response.data.origin}`;
+        }
+
+        paragraphs[0].innerText += ".";
+
+        const hair = response.data.hair.toLowerCase().split(" ");
+
+        if (hair[0] !== "none" && hair[0] !== "unknown") {
+          paragraphs[0].innerText += ` They have ${response.data.hair.toLowerCase()} hair.`;
+        }
+
+        paragraphs[1].innerText = `Their current status is "${response.data.status.toLowerCase()}".`;
+
+        if (response.data.abilities.length > 0) {
+          paragraphs[2].innerText =
+            "They have some special abilities, such as ";
+
+          response.data.abilities.forEach((ability, index) => {
+            if (index == response.data.abilities.length - 2) {
+              paragraphs[2].innerText += `${ability.toLowerCase()} `;
+            } else if (index == response.data.abilities.length - 1) {
+              paragraphs[2].innerText += `and ${ability.toLowerCase()}.`;
+            } else {
+              paragraphs[2].innerText += `${ability.toLowerCase()}, `;
+            }
+          });
+        }
+
+        paragraphs.forEach((paragraph) => {
+          content.append(paragraph);
+        });
+
+        if (response.data.alias.length > 0) {
+          listTitle.innerText = "Known aliases:";
+
+          response.data.alias.forEach((alias, index) => {
+            listElements.push(document.createElement("li"));
+            listElements[listElements.length - 1].innerText = alias;
+
+            if (index == response.data.alias.length - 1) {
+              content.append(listTitle);
+
+              listElements.forEach((element) => {
+                list.append(element);
+              });
+
+              content.append(list);
+            }
+          });
+        }
+
+        infoCard.append(title);
+        infoCard.append(elementImg);
+        infoCard.append(cardAttr);
+      });
+
+    window.addEventListener("resize", () => {
+      console.log(window.innerWidth);
+    });
+  </script>
+
+  <style>
+    div.detail-container p {
+      display: block;
+
+      margin-top: 5px;
+      padding: 0;
+    }
+
+    div.detail-container a {
+      color: #8f4542;
+      text-decoration: none;
+    }
+
+    div.detail-container a:hover {
+      color: #a45e5b;
+    }
+
+    div.info-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      border-radius: 7px;
+      border-width: 2px;
+      border-color: #a45e5b;
+      border-style: solid;
+      background-color: rgb(18, 18, 18, 0.5);
+    }
+
+    div.info-card > img {
+      width: 70%;
+      border-radius: 5px;
+    }
+
+    div.content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 40px;
+
+      border-radius: 7px;
+      border-width: 2px;
+      border-color: #9f9ec4;
+      border-style: solid;
+      background-color: rgb(235, 235, 235, 0.5);
+
+      color: #1b1a2f;
+    }
+
+    div.content > ul {
+      margin: 0;
+    }
+
+    div.content > ul > li:not(:first-child) {
+      margin-top: 10px;
+    }
+
+    div.info-card h2.alive,
+    div.info-card h2.deceased,
+    div.info-card h2.unknown {
+      border-radius: 5px;
+      border-color: rgb(235, 235, 235, 0.8);
+      border-width: 3px;
+      border-style: solid;
+
+      padding: 5px;
+    }
+
+    div.info-card h2.alive {
+      background-color: rgb(50, 140, 50);
+    }
+
+    div.info-card h2.deceased {
+      background-color: rgb(183, 54, 54);
+    }
+
+    div.info-card h2.unknown {
+      background-color: gray;
+    }
+
+    div.pictures {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      background-color: #1b1a2f;
+      border-width: 2px;
+      border-color: #9f9ec4;
+      border-style: solid;
+      border-radius: 5px;
+
+      padding: 10px;
+      margin-bottom: 40px;
+    }
+
+    div.pictures img {
+      width: 15vw;
+      height: 15vw;
+
+      border-radius: 10px;
+
+      margin: 10px;
+    }
+
+    @media screen and (min-width: 940px) {
+      div.detail-container {
+        display: grid;
+
+        grid-template-columns: 35% 60%;
+        grid-template-rows: 100%;
+        column-gap: 2%;
+      }
+
+      div.info-card {
+        margin: 40px 0 40px 40px;
+      }
+
+      div.content {
+        margin-top: 40px;
+        margin-bottom: 40px;
+      }
+
+      div.pictures {
+        margin-left: 40px;
+        grid-column: span 2;
+      }
+    }
+
+    @media screen and (max-width: 939px) {
+      div.detail-container {
+        display: grid;
+        grid-template-columns: 100%;
+        row-gap: 2%;
+      }
+
+      div.info-card {
+        margin: 40px 20px 0 20px;
+      }
+
+      img#info-card-img {
+        clip-path: inset(0 17% 0 17%);
+      }
+
+      div.content {
+        margin: 0 20px 10px 20px;
+
+        text-align: center;
+      }
+
+      div.content > ul {
+        text-align: left;
+      }
+
+      div.pictures {
+        margin-left: 20px;
+        margin-right: 20px;
+
+        margin-bottom: 100px;
+      }
+    }
+  </style>
 </html>
