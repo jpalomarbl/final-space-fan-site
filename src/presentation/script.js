@@ -1,3 +1,6 @@
+const thumbnail = document.getElementById("thumbnail");
+const iframe = document.getElementById("video");
+
 starGenerator();
 
 //Function declaration
@@ -36,4 +39,11 @@ window.addEventListener("resize", function (e) {
 
     starGenerator();
   }, 250);
+});
+
+thumbnail.addEventListener("click", (event) => {
+  thumbnail.style.display = "none";
+  iframe.src =
+    "https://www.youtube.com/embed/4EHbt_kSkG8?si=dmESUGAHFTeN1qGn&amp;controls=0&autoplay=1";
+  iframe.style.display = "block";
 });

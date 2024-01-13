@@ -54,10 +54,19 @@ div.info-card > h1 {
     margin: 30px;
 }
 
-div.info-card > iframe {
+div.info-card > iframe,
+div.info-card > img.thumbnail {
   width: 80%;
   border-radius: 5px;
   margin-bottom: 30px;
+}
+
+div.info-card > iframe {
+  display: none;
+}
+
+div.info-card > img.thumbnail {
+  cursor: pointer;
 }
 
 div.content {
