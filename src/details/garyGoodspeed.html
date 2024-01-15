@@ -19,19 +19,27 @@
           <picture>
             <source
               media="(min-width: 1278px)"
-              srcset="../img/garyGoodspeed/150/garyGoodspeed1.jpg"
+              srcset="../img/garyGoodspeed/150/garyGoodspeed1.webp"
+              height="150"
+              width="150"
             />
             <source
               media="(min-width: 940px)"
-              srcset="../img/garyGoodspeed/100/garyGoodspeed1.jpeg"
+              srcset="../img/garyGoodspeed/100/garyGoodspeed1.webp"
+              height="150"
+              width="150"
             />
             <source
               media="(max-width: 939px)"
-              srcset="../img/garyGoodspeed/50/garyGoodspeed1.jpg"
+              srcset="../img/garyGoodspeed/50/garyGoodspeed1.webp"
+              height="100"
+              width="100"
             />
             <img
-              src="../img/garyGoodspeed/100/garyGoodspeed1.jpeg"
+              src="../img/garyGoodspeed/100/garyGoodspeed1.webp"
               alt="Gary Goodspeed"
+              height="150"
+              width="150"
               loading="lazy"
             />
           </picture>
@@ -39,19 +47,27 @@
           <picture>
             <source
               media="(min-width: 1278px)"
-              srcset="../img/garyGoodspeed/150/garyGoodspeed2.jpg"
+              srcset="../img/garyGoodspeed/150/garyGoodspeed2.webp"
+              height="150"
+              width="150"
             />
             <source
               media="(min-width: 940px)"
-              srcset="../img/garyGoodspeed/100/garyGoodspeed2.jpeg"
+              srcset="../img/garyGoodspeed/100/garyGoodspeed2.webp"
+              height="150"
+              width="150"
             />
             <source
               media="(max-width: 939px)"
-              srcset="../img/garyGoodspeed/50/garyGoodspeed2.jpg"
+              srcset="../img/garyGoodspeed/50/garyGoodspeed2.webp"
+              height="100"
+              width="100"
             />
             <img
-              src="../img/garyGoodspeed/100/garyGoodspeed2.jpeg"
+              src="../img/garyGoodspeed/100/garyGoodspeed2.webp"
               alt="Gary Goodspeed"
+              height="150"
+              width="150"
               loading="lazy"
             />
           </picture>
@@ -59,19 +75,27 @@
           <picture>
             <source
               media="(min-width: 1278px)"
-              srcset="../img/garyGoodspeed/150/garyGoodspeed3.jpg"
+              srcset="../img/garyGoodspeed/150/garyGoodspeed3.webp"
+              height="150"
+              width="150"
             />
             <source
               media="(min-width: 940px)"
-              srcset="../img/garyGoodspeed/100/garyGoodspeed3.jpeg"
+              srcset="../img/garyGoodspeed/100/garyGoodspeed3.webp"
+              height="150"
+              width="150"
             />
             <source
               media="(max-width: 939px)"
-              srcset="../img/garyGoodspeed/50/garyGoodspeed3.jpg"
+              srcset="../img/garyGoodspeed/50/garyGoodspeed3.webp"
+              height="100"
+              width="100"
             />
             <img
-              src="../img/garyGoodspeed/100/garyGoodspeed3.jpeg"
+              src="../img/garyGoodspeed/100/garyGoodspeed3.webp"
               alt="Gary Goodspeed"
+              height="150"
+              width="150"
               loading="lazy"
             />
           </picture>
@@ -96,8 +120,11 @@
     // Card elements
     const title = document.createElement("h1");
     const elementImg = document.createElement("img");
-    elementImg.id = "info-card-img";
     const cardAttr = document.createElement("h2");
+
+    elementImg.id = "info-card-img";
+    elementImg.height = "150";
+    elementImg.width = "200";
 
     // Content elements
     const paragraphs = [
@@ -246,7 +273,6 @@
     }
 
     div.info-card > img {
-      width: 70%;
       border-radius: 5px;
     }
 
@@ -313,9 +339,6 @@
     }
 
     div.pictures img {
-      width: 15vw;
-      height: 15vw;
-
       border-radius: 10px;
 
       margin: 10px;

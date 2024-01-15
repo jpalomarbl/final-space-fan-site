@@ -19,19 +19,27 @@
           <picture>
             <source
               media="(min-width: 1278px)"
-              srcset="../img/other/150/lordCommander.jpg"
+              srcset="../img/other/150/lordCommander.webp"
+              height="150"
+              width="150"
             />
             <source
               media="(min-width: 940px)"
-              srcset="../img/other/100/lordCommander.jpeg"
+              srcset="../img/other/100/lordCommander.webp"
+              height="150"
+              width="150"
             />
             <source
               media="(max-width: 939px)"
-              srcset="../img/other/50/lordCommander.jpg"
+              srcset="../img/other/50/lordCommander.webp"
+              height="100"
+              width="100"
             />
             <img
-              src="../img/other/100/lordCommander.jpeg"
+              src="../img/other/100/lordCommander.webp"
               alt="Gary Goodspeed"
+              height="150"
+              width="150"
               loading="lazy"
             />
           </picture>
@@ -39,19 +47,27 @@
           <picture>
             <source
               media="(min-width: 1278px)"
-              srcset="../img/other/50/triborg.jpg"
+              srcset="../img/other/50/triborg.webp"
+              height="150"
+              width="150"
             />
             <source
               media="(min-width: 940px)"
-              srcset="../img/other/100/triborg.jpg"
+              srcset="../img/other/100/triborg.webp"
+              height="150"
+              width="150"
             />
             <source
               media="(max-width: 939px)"
-              srcset="../img/other/150/triborg.jpg"
+              srcset="../img/other/150/triborg.webp"
+              height="100"
+              width="100"
             />
             <img
-              src="../img/other/100/triborg.jpg"
+              src="../img/other/100/triborg.webp"
               alt="Mooncake"
+              height="150"
+              width="150"
               loading="lazy"
             />
           </picture>
@@ -59,19 +75,27 @@
           <picture>
             <source
               media="(min-width: 1278px)"
-              srcset="../img/quinnErgon/50/quinnErgon1.jpg"
+              srcset="../img/quinnErgon/50/quinnErgon1.webp"
+              height="150"
+              width="150"
             />
             <source
               media="(min-width: 940px)"
-              srcset="../img/quinnErgon/100/quinnErgon1.jpeg"
+              srcset="../img/quinnErgon/100/quinnErgon1.webp"
+              height="150"
+              width="150"
             />
             <source
               media="(max-width: 939px)"
-              srcset="../img/quinnErgon/150/quinnErgon1.jpg"
+              srcset="../img/quinnErgon/150/quinnErgon1.webp"
+              height="100"
+              width="100"
             />
             <img
-              src="../img/quinnErgon/100/quinnErgon1.jpeg"
+              src="../img/quinnErgon/100/quinnErgon1.webp"
               alt="Quinn Ergon"
+              height="150"
+              width="150"
               loading="lazy"
             />
           </picture>
@@ -96,8 +120,10 @@
     // Card elements
     const title = document.createElement("h1");
     const elementImg = document.createElement("img");
-    elementImg.id = "info-card-img";
     const cardAttr = document.createElement("h2");
+    elementImg.id = "info-card-img";
+    elementImg.height = "150";
+    elementImg.width = "200";
 
     // Content elements
     const paragraphs = [
@@ -253,7 +279,6 @@
     }
 
     div.info-card > img {
-      width: 70%;
       border-radius: 5px;
     }
 
@@ -297,9 +322,6 @@
     }
 
     div.pictures img {
-      width: 15vw;
-      height: 15vw;
-
       border-radius: 10px;
 
       margin: 10px;
