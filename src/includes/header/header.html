@@ -1,12 +1,38 @@
 <header>
   <div class="container">
-    <a href="../cover/index.html">
-      <img
-        src="../img/Final_Space_Logo.png"
+    <a class="logo-link" href="../cover/index.html">
+      <!-- <img
+        height="80"
+        width="180"
+        src="../img/Final_Space_Logo.webp"
         alt="Final Space Fan Site Logo"
         class="logo"
         loading="lazy"
-      />
+      /> -->
+
+      <picture class="logo">
+        <source
+          media="(max-width: 640px)"
+          height="50"
+          width="100"
+          srcset="../img/Final_Space_Logo.webp"
+          loading="lazy"
+        />
+        <source
+          media="(min-width: 641px)"
+          height="80"
+          width="180"
+          srcset="../img/Final_Space_Logo.webp"
+          loading="lazy"
+        />
+        <img
+          src="../img/Final_Space_Logo.webp"
+          height="80"
+          width="180"
+          loading="lazy"
+          alt="Final Space Logo"
+        />
+      </picture>
     </a>
 
     <p id="number-selected">{{ current }}</p>
@@ -109,17 +135,20 @@
   }
 
   header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
     width: 80%;
     margin: 0 auto;
   }
 
-  header .container img {
+  header .container picture {
     padding-top: 10px;
     padding-bottom: 10px;
   }
 
   header .logo {
-    height: 100px;
     float: left;
   }
 
@@ -198,6 +227,10 @@
 
   header nav li:hover a::after {
     width: 100%;
+  }
+
+  header nav li.hamburguer {
+    margin: 0 !important;
   }
 
   header nav li.hamburguer:hover {

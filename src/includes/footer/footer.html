@@ -17,12 +17,27 @@
     </nav>
 
     <a class="logo" href="../cover/index.html">
-      <img
-        src="../img/Final_Space_Logo.png"
-        alt="Final Space Fan Site Logo"
-        class="logo"
-        loading="lazy"
-      />
+      <picture>
+        <source
+          media="(max-width: 640px)"
+          height="30"
+          width="80"
+          srcset="../img/Final_Space_Logo.webp"
+          loading="lazy"
+        />
+        <source
+          media="(min-width: 641px)"
+          height="70"
+          width="190"
+          srcset="../img/Final_Space_Logo.webp"
+          loading="lazy"
+        />
+        <img
+          src="../img/Final_Space_Logo.webp"
+          loading="lazy"
+          alt="Final Space Logo"
+        />
+      </picture>
     </a>
   </div>
 </footer>
@@ -105,10 +120,6 @@
     margin-right: 10rem;
   }
 
-  footer img {
-    width: 10rem;
-  }
-
   @media screen and (max-width: 640px) {
     footer div.container {
       display: flex;
@@ -127,10 +138,6 @@
 
     footer nav li {
       text-align: center;
-    }
-
-    footer img {
-      width: 8rem;
     }
   }
 </style>
