@@ -14,17 +14,40 @@
         <div id="info-card" class="info-card">
           <h2>Final Space season one trailer</h2>
 
-          <img
+          <!-- <img
             class="thumbnail"
             id="thumbnail"
-            src="../img/thumbnail.jpg"
+            src="../img/thumbnail.webp"
             alt="Video thumbnail"
-          />
+            height="250"
+            width="980"
+          /> -->
+
+          <picture class="thumbnail" id="thumbnail">
+            <source
+              media="(min-width: 1475px)"
+              srcset="../img/thumbnail.webp"
+              height="112"
+              width="392"
+            ></source>
+            <source
+              media="(max-width: 1474px)"
+              srcset="../img/thumbnail1.webp"
+              height="314"
+              width="544"
+            ></source>
+            <img
+              src="../img/thumbnail.webp"
+              alt="Video thumbnail"
+              height="280"
+              width="980"
+            />
+          </picture>
 
           <iframe
             id="video"
-            width="560"
-            height="315"
+            width="392"
+            height="220"
             src="https://www.youtube.com/embed/4EHbt_kSkG8?si=dmESUGAHFTeN1qGn&amp;controls=0&autoplay=1"
             title="YouTube video player"
             frameborder="0"
@@ -89,6 +112,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-    <script defer type="module" src="script.js"></script>
+    <script async type="module" src="script.js"></script>
   </body>
 </html>
