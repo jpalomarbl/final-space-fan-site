@@ -21,8 +21,6 @@ starGenerator();
 promises.push(
   new Promise((resolve, reject) => {
     axios.get("https://finalspaceapi.com/api/v0/location/").then((response) => {
-      // console.log("locations", response.data);
-
       response.data.forEach((location, index) => {
         if (index <= 2) {
           let locationElement = document.createElement("li");
@@ -211,19 +209,6 @@ menus.forEach((menu) => {
       } else {
         menu.childNodes[3].className = "";
       }
-
-      // menuTitles.forEach((title, index) => {
-      //   title.addEventListener("click", () => {
-      //     console.log(menus[index].childNodes[3]);
-      //     if (menus[index].childNodes[3].className === "") {
-      //       menus[index].childNodes[3].className = "open";
-      //       title.className = "open";
-      //     } else {
-      //       menus[index].childNodes[3].className = "";
-      //       title.className = "";
-      //     }
-      //   });
-      // });
     });
   });
 });

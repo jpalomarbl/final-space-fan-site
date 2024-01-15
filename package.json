@@ -52,6 +52,7 @@
   },
   "dependencies": {
     "axios": "^1.6.1",
+    "imagemin": "^8.0.1",
     "parcel": "^2.10.0"
   }
 }
