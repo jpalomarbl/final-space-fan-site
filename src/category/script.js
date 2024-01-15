@@ -171,29 +171,6 @@ promises.push(
   })
 );
 
-Promise.all(promises).then(() => {
-  // APPEND LISTS TO MENUS
-  locationsMenu.append(locationsList);
-  charactersMenu.append(charactersList);
-  episodesMenu.append(episodesList);
-
-  const menus = [locationsMenu, charactersMenu, episodesMenu];
-  const menuTitles = [locationsTitle, charactersTitle, episodesTitle];
-  const amounts = [locationsAmount, charactersAmount, episodesAmount];
-
-  menuTitles.forEach((title, index) => {
-    title.addEventListener("click", () => {
-      if (menus[index].childNodes[3].className === "") {
-        menus[index].childNodes[3].className = "open";
-        title.className = "open";
-      } else {
-        menus[index].childNodes[3].className = "";
-        title.className = "";
-      }
-    });
-  });
-});
-
 function starGenerator() {
   let scrollHeight = Math.max(
     document.body.scrollHeight,
@@ -217,6 +194,40 @@ function starGenerator() {
 }
 
 //Listeners
+const menus = [locationsMenu, charactersMenu, episodesMenu];
+const menuTitles = [locationsTitle, charactersTitle, episodesTitle];
+const amounts = [locationsAmount, charactersAmount, episodesAmount];
+
+menus.forEach((menu) => {
+  menu.addEventListener("click", () => {
+    Promise.all(promises).then(() => {
+      // APPEND LISTS TO MENUS
+      locationsMenu.append(locationsList);
+      charactersMenu.append(charactersList);
+      episodesMenu.append(episodesList);
+
+      if (menu.childNodes[3].className === "") {
+        menu.childNodes[3].className = "open";
+      } else {
+        menu.childNodes[3].className = "";
+      }
+
+      // menuTitles.forEach((title, index) => {
+      //   title.addEventListener("click", () => {
+      //     console.log(menus[index].childNodes[3]);
+      //     if (menus[index].childNodes[3].className === "") {
+      //       menus[index].childNodes[3].className = "open";
+      //       title.className = "open";
+      //     } else {
+      //       menus[index].childNodes[3].className = "";
+      //       title.className = "";
+      //     }
+      //   });
+      // });
+    });
+  });
+});
+
 let resizeTimer;
 window.addEventListener("resize", function (e) {
   clearTimeout(resizeTimer);
