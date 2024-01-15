@@ -153,8 +153,6 @@ div.star {
 }
 
 div.animation > img {
-  width: 15vw;
-
   margin-top: 3vh;
 
   animation: jump-and-bounce 2s infinite;
