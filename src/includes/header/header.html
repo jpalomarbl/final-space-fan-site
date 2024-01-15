@@ -1,15 +1,6 @@
 <header>
   <div class="container">
     <a class="logo-link" href="../cover/index.html">
-      <!-- <img
-        height="80"
-        width="180"
-        src="../img/Final_Space_Logo.webp"
-        alt="Final Space Fan Site Logo"
-        class="logo"
-        loading="lazy"
-      /> -->
-
       <picture class="logo">
         <source
           media="(max-width: 640px)"
@@ -135,9 +126,7 @@
   }
 
   header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+
     
     width: 80%;
     margin: 0 auto;
@@ -291,6 +280,12 @@
   }
 
   @media screen and (max-width: 789px) {
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
     header nav:not(.overlay) li {
       display: none;
     }
